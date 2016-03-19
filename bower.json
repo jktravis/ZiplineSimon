@@ -1,0 +1,23 @@
+{
+  "name": "zipline-simon",
+  "description": "FCC Simon",
+  "main": "index.html",
+  "authors": [
+    "jktravis <joshua.travis@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "static/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6"
+  }
+}
