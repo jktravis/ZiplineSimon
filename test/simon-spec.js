@@ -25,7 +25,6 @@ describe('Simon', function () {
         Simon.pattern.push(Simon.getNextInPattern());
       }
       assert.isAtLeast(Simon.pattern.length, 20, 'At least 20 entries.');
-      Simon.printPattern();
     });
   });
 
@@ -44,5 +43,17 @@ describe('Simon', function () {
     it('should return false when the selection is not the same.', function () {
       assert(Simon.compareSelection(2, 3) === false);
     });
-  })
+  });
+
+  describe("go", function () {
+    it("should return array from start of pattern to the current step.", function () {
+      Simon.pattern = [0, 1, 2, 3];
+      assert.deepEqual(Simon.go(0), [0], 'First step in pattern.');
+      assert.deepEqual(Simon.go(1), [0, 1], 'Second step in pattern.');
+      assert.deepEqual(Simon.go(2), [0, 1, 2], 'Third step in pattern.');
+      assert.deepEqual(Simon.go(3), [0, 1, 2, 3], 'Fourth step in pattern.');
+      assert.equal(Simon.currentStep, 4, 'Step at the end of the sequence.');
+      console.log(Simon.pattern);
+    });
+  });
 });
