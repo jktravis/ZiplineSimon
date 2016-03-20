@@ -1,0 +1,40 @@
+body {
+    background-color: #b58e50;
+}
+
+h1 {
+    text-align: center;
+}
+
+#simon {
+    background-color: #2e2e2e;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+}
+
+#simon > div {
+    width: 225px;
+    height: 225px;
+    float: left;
+}
+#green {
+    background-color: #00c100;
+    border-top-left-radius: 50%;
+}
+
+#red {
+    background-color: #D60000;
+    border-top-right-radius: 50%;
+}
+
+#yellow {
+    background-color: #d9d500;
+    border-bottom-left-radius: 50%;
+}
+
+#blue {
+    background-color: #0000c7;
+    border-bottom-right-radius: 50%;
+}
+
