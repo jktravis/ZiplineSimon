@@ -44,35 +44,4 @@ describe('Simon', function () {
       assert(Simon.compareSelection(2, 3) === false);
     });
   });
-
-  describe("go", function () {
-    it("should return array from start of pattern to the current step.", function () {
-      Simon.pattern = [0, 1, 2, 3];
-      assert.deepEqual(Simon.go(0), [0], 'First step in pattern.');
-      assert.deepEqual(Simon.go(1), [0, 1], 'Second step in pattern.');
-      assert.deepEqual(Simon.go(2), [0, 1, 2], 'Third step in pattern.');
-      assert.deepEqual(Simon.go(3), [0, 1, 2, 3], 'Fourth step in pattern.');
-      assert.equal(Simon.currentStep, 4, 'Step at the end of the sequence.');
-    });
-
-    it("should initialize or reset when no args are passed.", function () {
-      Simon.pattern = [];
-      assert.equal(Simon.pattern.length, 0, "Empty pattern");
-      Simon.go();
-      assert.equal(Simon.pattern.length, 1, "Initialized pattern.");
-      Simon.go();
-      assert.equal(Simon.pattern.length, 1, "Reset pattern.");
-    });
-
-    it("should return true on a win.", function () {
-      Simon.go();
-      var uiPattern;
-      for (var i = 0; i < 19; i++) {
-        uiPattern = Simon.pattern[i];
-        Simon.go(uiPattern);
-      }
-      uiPattern = Simon.pattern[Simon.pattern[Simon.pattern.length -1]];
-      assert.isTrue(Simon.go(uiPattern), "Game is a Win!");
-    });
-  });
 });
