@@ -30,38 +30,6 @@ exports.simon = {
   },
 
   /**
-   * Main driver of the application. Can be used as a reset by passing no args.
-   * @param selection - An integer value matching the current pattern step.
-   * @returns {Array|Boolean} True if the player has won. Pattern segment up to the
-   * current step, otherwise.
-   */
-  go: function (selection) {
-    if (this.pattern.length === 0 || selection === undefined) {
-      return this.reset();
-    }
-    // is selection correct for current step?
-    if (this.compareSelection(this.currentStep, selection)) {
-      if (this.isGameOver()) {
-        // Win!
-        return true;
-      }
-      else if (this.isLastInPattern() && (this.currentStep !== this.pattern.length -1)) {
-        this.pattern.push(this.getNextInPattern());
-        return this.pattern;
-      }
-      else {
-        this.currentStep++;
-        this.pattern.push(this.getNextInPattern());
-        return this.pattern;
-      }
-    }
-    else {
-      // wrong selection, repeat.
-      return this.pattern;
-    }
-  },
-
-  /**
    * Resets the pattern, the step, and returns a new starting pattern.
    * @returns {Array} The pattern.
    */
