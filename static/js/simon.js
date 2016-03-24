@@ -31,13 +31,11 @@ exports.simon = {
 
   /**
    * Resets the pattern, the step, and returns a new starting pattern.
-   * @returns {Array} The pattern.
    */
   reset: function () {
     this.pattern = [];
     this.currentStep = 0;
     this.pattern.push(this.getNextInPattern());
-    return this.pattern;
   },
 
   /**
