@@ -7,7 +7,6 @@ exports.simon = {
    * @returns {number} Randomly generated a number between 0 and 3, inclusive.
    */
   getNextInPattern: function () {
-    this.currentStep++;
     return Math.floor(Math.random() * 4);
   },
 
@@ -37,14 +36,6 @@ exports.simon = {
     this.pattern = [];
     this.currentStep = 0;
     this.pattern.push(this.getNextInPattern());
-  },
-
-  /**
-   * Checks if the player has one the game.
-   * @returns {boolean}
-   */
-  isGameOver: function () {
-    return (this.isLastInPattern() && this.isLastStepInGame());
   },
 
   /**
