@@ -2,15 +2,14 @@ $(document).ready(function () {
   var Simon = exports.simon;
   var colors = [
     {base: '#00c100', highlight: '#00ff00'},
-    {base: '#B20000', highlight: '#fa0000'},
-    {base: '#B5B200', highlight: '#f4f000'},
-    {base: '#0000A9', highlight: '#0000f6'}
+    {base: '#d20306', highlight: '#FD2C19'},
+    {base: '#CCCA4B', highlight: '#FFFF00'},
+    {base: '#0000FF', highlight: '#4371EE'}
   ];
 
 
   function playPattern() {
     for (var i = 0; i < Simon.pattern.length; i++) {
-      flash(i);
       console.log("Beep: " + Simon.pattern[i]);
     }
   }

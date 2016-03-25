@@ -24,17 +24,17 @@ h1 {
 }
 
 .red {
-    background-color: #b20000;
+    background-color: #d20306;
     border-top-right-radius: 50%;
 }
 
 .yellow {
-    background-color: #b5b200;
+    background-color: #ccca4b;
     border-bottom-left-radius: 50%;
 }
 
 .blue {
-    background-color: #0000a9;
+    background-color: #0000FF;
     border-bottom-right-radius: 50%;
 }
 
