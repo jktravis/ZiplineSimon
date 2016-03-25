@@ -18,23 +18,23 @@ h1 {
     height: 225px;
     float: left;
 }
-#green {
+.green {
     background-color: #00c100;
     border-top-left-radius: 50%;
 }
 
-#red {
-    background-color: #D60000;
+.red {
+    background-color: #b20000;
     border-top-right-radius: 50%;
 }
 
-#yellow {
-    background-color: #d9d500;
+.yellow {
+    background-color: #b5b200;
     border-bottom-left-radius: 50%;
 }
 
-#blue {
-    background-color: #0000c7;
+.blue {
+    background-color: #0000a9;
     border-bottom-right-radius: 50%;
 }
 
