@@ -1,5 +1,6 @@
 $(document).ready(function () {
   var Simon = exports.simon;
+  var seqFunctions = [];
   var colors = [
     {base: '#00c100', highlight: '#00ff00'},
     {base: '#d20306', highlight: '#FD2C19'},
@@ -10,8 +11,13 @@ $(document).ready(function () {
 
   function playPattern() {
     for (var i = 0; i < Simon.pattern.length; i++) {
-      console.log("Beep: " + Simon.pattern[i]);
+      seqFunctions.push([flash, Simon.pattern[i]]);
     }
+
+    console.log(seqFunctions);
+    seqFunctions.map(function(fun, index) {
+      setTimeout(fun[0], 500 * index, fun[1]);
+    });
   }
 
   function flash(id) {
@@ -24,17 +30,7 @@ $(document).ready(function () {
     })();
   }
 
-  setTimeout(function () {
-    flash(0);
-    setTimeout(function () {
-      flash(1);
-      setTimeout(function () {
-        flash(2);
-        setTimeout(function () {
-          flash(3);
-        }, 500);
-      }, 500);
-    }, 500);
-  }, 500);
+  Simon.pattern.push(Simon.getNextInPattern());
+  playPattern();
 });
 
