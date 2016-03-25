@@ -1,14 +1,8 @@
 $(document).ready(function () {
   var Simon = exports.simon;
-  var seqFunctions = [];
-  var colors = [
-    {base: '#00c100', highlight: '#00ff00'},
-    {base: '#d20306', highlight: '#FD2C19'},
-    {base: '#CCCA4B', highlight: '#FFFF00'},
-    {base: '#0605C5', highlight: '#3A38FF'}
-  ];
 
   function playPattern() {
+    var seqFunctions = [];
     for (var i = 0; i < Simon.pattern.length; i++) {
       seqFunctions.push([flash, Simon.pattern[i]]);
     }
@@ -20,6 +14,13 @@ $(document).ready(function () {
 
   function flash(id) {
     var $sel = $('#' + id);
+    var colors = [
+      {base: '#00c100', highlight: '#00ff00'},
+      {base: '#d20306', highlight: '#FD2C19'},
+      {base: '#CCCA4B', highlight: '#FFFF00'},
+      {base: '#0605C5', highlight: '#3A38FF'}
+    ];
+
     (function() {
       $sel.animate({backgroundColor: colors[id].highlight}, 500);
     })();
