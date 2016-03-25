@@ -5,16 +5,14 @@ $(document).ready(function () {
     {base: '#00c100', highlight: '#00ff00'},
     {base: '#d20306', highlight: '#FD2C19'},
     {base: '#CCCA4B', highlight: '#FFFF00'},
-    {base: '#0000FF', highlight: '#4371EE'}
+    {base: '#0605C5', highlight: '#3A38FF'}
   ];
-
 
   function playPattern() {
     for (var i = 0; i < Simon.pattern.length; i++) {
       seqFunctions.push([flash, Simon.pattern[i]]);
     }
 
-    console.log(seqFunctions);
     seqFunctions.map(function(fun, index) {
       setTimeout(fun[0], 500 * index, fun[1]);
     });
@@ -32,5 +30,24 @@ $(document).ready(function () {
 
   Simon.pattern.push(Simon.getNextInPattern());
   playPattern();
+
+  $('#simon > div').on('click', function() {
+    // Selection correct?
+    if (Simon.compareSelection(Simon.currentStep, parseInt(this.id))) {
+      console.log('Correct selection');
+      if (Simon.isLastInPattern()) {
+        console.log('Last in pattern. Getting next, and playing pattern');
+        Simon.pattern.push(Simon.getNextInPattern());
+        playPattern();
+      }
+      else {
+        console.log('Incrementing step');
+        Simon.currentStep++;
+      }
+    }
+    else {
+      console.log('Incorrect selection');
+    }
+  })
 });
 
