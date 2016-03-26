@@ -39,6 +39,10 @@ h1 {
 }
 
 #score {
-    font-family: digital_dreamregular, Arial;
+    font-family: digital_dreamregular, Arial, sans-serif;
     font-size: 24px;
+}
+
+#errorFlash {
+    background-color: rgba(255,0,0,.25);
 }
