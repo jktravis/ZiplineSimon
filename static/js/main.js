@@ -199,7 +199,7 @@ $(document).ready(function () {
     }
     else {
       // flash on error
-      selectionError(250);
+      selectionError(200);
 
       if (Simon.strictMode) {
         Simon.reset();
