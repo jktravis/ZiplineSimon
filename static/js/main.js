@@ -2,6 +2,7 @@ $(document).ready(function () {
   var Simon = exports.simon;
   var $buttons = $('#simon > button');
   var $powerSwitch = $('#power');
+  var $strictMode = $('#strict');
   var $errorFlash = $('#errorFlash');
   var $winningModal = $('#winningModal');
 
@@ -126,12 +127,20 @@ $(document).ready(function () {
     console.log('Incorrect selection');
     console.log(Simon.pattern);
     Simon.currentStep = 0;
-    playPattern();
+  }
+
+  function toggleStrict() {
+    $strictMode.toggleClass('active btn-default btn-warning');
+    Simon.toggleStrict();
   }
 
   $buttons.prop('disabled', true);
 
   $powerSwitch.bootstrapSwitch();
+
+  $strictMode.on('click', function () {
+    toggleStrict();
+  });
 
   $powerSwitch.on('switchChange.bootstrapSwitch', function (event, state) {
     if (state) {
@@ -172,6 +181,13 @@ $(document).ready(function () {
     else {
       // flash on error
       selectionError(250);
+
+      if (Simon.strictMode) {
+        turnOn();
+      }
+      else {
+        playPattern();
+      }
     }
   });
 
