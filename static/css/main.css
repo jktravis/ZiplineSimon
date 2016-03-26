@@ -38,3 +38,7 @@ h1 {
     border-bottom-right-radius: 50%;
 }
 
+#score {
+    font-family: digital_dreamregular, Arial;
+    font-size: 24px;
+}

@@ -38,7 +38,20 @@ $(document).ready(function () {
     })();
   }
 
+  function zfill(n, width) {
+    var tmp = '';
+    while ((tmp + n).length < width) {
+      tmp = '0' + n;
+    }
+    return tmp;
+  }
+
+  function updateScore() {
+    $('#score').text(zfill(Simon.pattern.length - 1, 2));
+  }
+
   Simon.pattern.push(Simon.getNextInPattern());
+  updateScore();
   playPattern();
 
   $buttons.on('mousedown', function() {
@@ -55,6 +68,7 @@ $(document).ready(function () {
         console.log('Last in pattern. Getting next, and playing pattern');
         Simon.pattern.push(Simon.getNextInPattern());
         Simon.currentStep = 0;
+        updateScore();
         playPattern();
       }
       else {
@@ -65,6 +79,7 @@ $(document).ready(function () {
     else {
       console.log('Incorrect selection');
       console.log(Simon.pattern);
+      playPattern();
     }
   })
 });
