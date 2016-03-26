@@ -129,6 +129,9 @@ $(document).ready(function () {
     Simon.currentStep = 0;
   }
 
+  /**
+   * Toggles strict mode in both the UI and the engine.
+   */
   function toggleStrict() {
     $strictMode.toggleClass('active btn-default btn-warning');
     Simon.toggleStrict();
