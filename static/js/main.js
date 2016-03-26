@@ -5,6 +5,7 @@ $(document).ready(function () {
   var $strictMode = $('#strict');
   var $errorFlash = $('#errorFlash');
   var $winningModal = $('#winningModal');
+  var $start = $('#start');
 
   var colors = [
     {base: '#00c100', highlight: '#00ff00'},
@@ -76,10 +77,12 @@ $(document).ready(function () {
 
   /**
    * Update the score display.
+   * @param text - Overriding text.
    */
-  function updateScore() {
+  function updateScore(text) {
+    var t = text || '--';
     if (Simon.pattern.length === 0) {
-      $('#score').text('--');
+      $('#score').html(t);
     }
     else {
       $('#score').text(zfill(Simon.pattern.length, 2));
@@ -91,9 +94,7 @@ $(document).ready(function () {
    */
   function turnOn() {
     $buttons.prop('disabled', false);
-    Simon.reset();
     updateScore();
-    playPattern();
   }
 
   /**
@@ -102,7 +103,7 @@ $(document).ready(function () {
   function turnOff() {
     Simon.currentStep = 0;
     Simon.pattern = [];
-    updateScore();
+    updateScore('&nbsp;');
     $buttons.prop('disabled', true);
   }
 
@@ -137,12 +138,28 @@ $(document).ready(function () {
     Simon.toggleStrict();
   }
 
+  function start() {
+    console.log("Starting...");
+    Simon.reset();
+    updateScore();
+    playPattern();
+  }
+
   $buttons.prop('disabled', true);
 
   $powerSwitch.bootstrapSwitch();
 
   $strictMode.on('click', function () {
-    toggleStrict();
+    if ($powerSwitch.bootstrapSwitch('state')) {
+      toggleStrict();
+    }
+  });
+
+  $start.on("click", function () {
+    console.log($powerSwitch.bootstrapSwitch('state'));
+    if ($powerSwitch.bootstrapSwitch('state')) {
+      start();
+    }
   });
 
   $powerSwitch.on('switchChange.bootstrapSwitch', function (event, state) {
@@ -186,7 +203,8 @@ $(document).ready(function () {
       selectionError(250);
 
       if (Simon.strictMode) {
-        turnOn();
+        Simon.reset();
+        start();
       }
       else {
         playPattern();
@@ -201,7 +219,8 @@ $(document).ready(function () {
 
   $('button.btn.btn-primary').on('click', function () {
     $winningModal.modal('hide');
-    turnOn();
+    Simon.reset();
+    start();
   })
 });
 
