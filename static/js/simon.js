@@ -30,7 +30,7 @@ exports.simon = {
   },
 
   /**
-   * Resets the pattern, the step, and returns a new starting pattern.
+   * Resets the pattern, the step, and sets a new starting pattern.
    */
   reset: function () {
     this.pattern = [];
@@ -51,7 +51,7 @@ exports.simon = {
    * @returns {boolean}
    */
   isLastStepInGame: function () {
-    return this.currentStep === 20;
+    return this.currentStep === 5;
   }
 };
 
