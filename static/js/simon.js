@@ -1,6 +1,7 @@
 exports.simon = {
   pattern: [],
   currentStep:  0,
+  strictMode: false,
 
   /**
    * Randomly generated a number between 0 and 3, inclusive.
@@ -52,6 +53,13 @@ exports.simon = {
    */
   isLastStepInGame: function () {
     return this.currentStep === 5;
+  },
+
+  /**
+   * Toggle strict mode on and off.
+   */
+  toggleStrict: function toggleStrict() {
+    this.strictMode = !this.strictMode;
   }
 };
 

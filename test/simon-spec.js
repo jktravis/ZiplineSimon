@@ -44,4 +44,17 @@ describe('Simon', function () {
       assert(Simon.compareSelection(2, 3) === false);
     });
   });
+
+  describe("toggleStrict", function () {
+    it("should set strict to true when false.", function () {
+      Simon.toggleStrict();
+      assert.isTrue(Simon.strictMode, "Strict mode enabled.");
+    });
+
+    it("should set strict to false when true.", function () {
+      Simon.toggleStrict();
+      Simon.toggleStrict();
+      assert.isTrue(Simon.strictMode, "Strict mode disabled.");
+    });
+  });
 });
