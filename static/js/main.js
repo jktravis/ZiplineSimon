@@ -82,7 +82,7 @@ $(document).ready(function () {
       $('#score').text('--');
     }
     else {
-      $('#score').text(zfill(Simon.pattern.length - 1, 2));
+      $('#score').text(zfill(Simon.pattern.length, 2));
     }
   }
 
