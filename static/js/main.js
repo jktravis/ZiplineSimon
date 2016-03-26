@@ -3,6 +3,7 @@ $(document).ready(function () {
   var $buttons = $('#simon > button');
   var $powerSwitch = $('#power');
   var $errorFlash = $('#errorFlash');
+  var $winningModal = $('#winningModal');
 
   var colors = [
     {base: '#00c100', highlight: '#00ff00'},
@@ -146,6 +147,7 @@ $(document).ready(function () {
       console.log('Correct selection');
       if (Simon.isLastStepInGame() && Simon.isLastInPattern()) {
         // won the game
+        $winningModal.modal('show');
         console.log('You win!');
       }
       else if (Simon.isLastInPattern()) {
@@ -164,6 +166,16 @@ $(document).ready(function () {
       // flash on error
       selectionError(250);
     }
+  });
+
+  $('button[data-dismiss="modal"]').on('click', function () {
+    turnOff();
+    $powerSwitch.bootstrapSwitch('state', false, false);
+  });
+
+  $('button.btn.btn-primary').on('click', function () {
+    $winningModal.modal('hide');
+    turnOn();
   })
 });
 
