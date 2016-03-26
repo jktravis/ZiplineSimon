@@ -21,6 +21,10 @@ h1 {
     border: none;
 }
 
+#buttons button:focus {
+    outline: none;
+}
+
 #buttons {
     position: absolute;
     left: 60px;
@@ -72,7 +76,7 @@ h1 {
 
 #score {
     padding: 5px 15px;
-    font-family: digital_dreamregular, Arial, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 24px;
     background-color: #32050C;
     color: #b20000;

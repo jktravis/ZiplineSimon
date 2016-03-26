@@ -170,12 +170,12 @@ $(document).ready(function () {
     }
   });
 
-  $buttons.on('mousedown', function() {
+  $buttons.on('mousedown touchstart', function () {
     $(this).animate({backgroundColor: colors[this.id].highlight}, 'fast');
     playSound(this.id);
   });
 
-  $buttons.on('mouseup', function () {
+  $buttons.on('mouseup touchend', function () {
     $(this).animate({backgroundColor: colors[this.id].base}, 'fast');
     // Selection correct?
     if (Simon.compareSelection(Simon.getCurrentStep(), parseInt(this.id))) {
