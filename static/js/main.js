@@ -101,7 +101,7 @@ $(document).ready(function () {
    * Turn off the game.
    */
   function turnOff() {
-    Simon.currentStep = 0;
+    Simon.resetStep();
     Simon.pattern = [];
     updateScore('&nbsp;');
     $buttons.prop('disabled', true);
@@ -127,7 +127,7 @@ $(document).ready(function () {
 
     console.log('Incorrect selection');
     console.log(Simon.pattern);
-    Simon.currentStep = 0;
+    Simon.resetStep();
   }
 
   /**
@@ -138,6 +138,9 @@ $(document).ready(function () {
     Simon.toggleStrict();
   }
 
+  /**
+   * Resets / starts the game.
+   */
   function start() {
     console.log("Starting...");
     Simon.reset();
@@ -156,7 +159,6 @@ $(document).ready(function () {
   });
 
   $start.on("click", function () {
-    console.log($powerSwitch.bootstrapSwitch('state'));
     if ($powerSwitch.bootstrapSwitch('state')) {
       start();
     }
@@ -179,7 +181,7 @@ $(document).ready(function () {
   $buttons.on('mouseup', function () {
     $(this).animate({backgroundColor: colors[this.id].base}, 'fast');
     // Selection correct?
-    if (Simon.compareSelection(Simon.currentStep, parseInt(this.id))) {
+    if (Simon.compareSelection(Simon.getCurrentStep(), parseInt(this.id))) {
       console.log('Correct selection');
       if (Simon.isLastStepInGame() && Simon.isLastInPattern()) {
         // won the game
@@ -189,13 +191,13 @@ $(document).ready(function () {
       else if (Simon.isLastInPattern()) {
         console.log('Last in pattern. Getting next, and playing pattern');
         Simon.pattern.push(Simon.getNextInPattern());
-        Simon.currentStep = 0;
+        Simon.resetStep();
         updateScore();
         playPattern();
       }
       else {
         console.log('Incrementing step');
-        Simon.currentStep++;
+        Simon.incrementStep();
       }
     }
     else {

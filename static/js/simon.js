@@ -52,7 +52,7 @@ exports.simon = {
    * @returns {boolean}
    */
   isLastStepInGame: function () {
-    return this.currentStep === 5;
+    return this.currentStep === 19;
   },
 
   /**
@@ -60,6 +60,28 @@ exports.simon = {
    */
   toggleStrict: function toggleStrict() {
     this.strictMode = !this.strictMode;
+  },
+
+  /**
+   * Get the current step.
+   * @returns {number} - the current step.
+   */
+  getCurrentStep: function getCurrentStep() {
+    return this.currentStep;
+  },
+
+  /**
+   * Increment step.
+   */
+  incrementStep: function incrementStep() {
+    this.currentStep++;
+  },
+
+  /**
+   * Reset step.
+   */
+  resetStep: function resetStep() {
+    this.currentStep = 0;
   }
 };
 
