@@ -14,7 +14,7 @@ h1 {
     box-shadow: 0 0 30px #404040;
 }
 
-#simon button {
+#buttons button {
     width: 205px;
     height: 205px;
     float: left;
@@ -101,4 +101,10 @@ h1 {
     position: absolute;
     top: 160px;
     left: 60px;
+}
+
+#strict {
+    position: absolute;
+    top: 100px;
+    left: 100px;
 }

@@ -1,6 +1,6 @@
 $(document).ready(function () {
   var Simon = exports.simon;
-  var $buttons = $('#simon button');
+  var $buttons = $('#buttons button');
   var $powerSwitch = $('#power');
   var $strictMode = $('#strict');
   var $errorFlash = $('#errorFlash');
@@ -96,6 +96,9 @@ $(document).ready(function () {
    */
   function turnOff() {
     Simon.resetStep();
+    if (Simon.strictMode) {
+      toggleStrict();
+    }
     Simon.pattern = [];
     updateScore('&nbsp;');
     $buttons.prop('disabled', true);
