@@ -8,10 +8,10 @@ $(document).ready(function () {
   var $start = $('#start');
 
   var colors = [
-    {base: '#00c100', highlight: '#00ff00'},
-    {base: '#d20306', highlight: '#FF4D52'},
-    {base: '#CCCA4B', highlight: '#FFFF00'},
-    {base: '#0605C5', highlight: '#009CFF'}
+    {base: '#00A74A', highlight: '#00ff00'},
+    {base: '#9F0F17', highlight: '#FF4D52'},
+    {base: '#CCA707', highlight: '#FFFF00'},
+    {base: '#094A8F', highlight: '#009CFF'}
   ];
 
   /**
@@ -45,12 +45,6 @@ $(document).ready(function () {
    */
   function flash(id) {
     var $sel = $('#' + id);
-    var colors = [
-      {base: '#00c100', highlight: '#00ff00'},
-      {base: '#d20306', highlight: '#FD2C19'},
-      {base: '#CCCA4B', highlight: '#FFFF00'},
-      {base: '#0605C5', highlight: '#3A38FF'}
-    ];
 
     (function() {
       playSound(id);

@@ -19,22 +19,22 @@ h1 {
     float: left;
 }
 .green {
-    background-color: #00c100;
+    background-color: #00A74A;
     border-top-left-radius: 50%;
 }
 
 .red {
-    background-color: #d20306;
+    background-color: #9F0F17;
     border-top-right-radius: 50%;
 }
 
 .yellow {
-    background-color: #ccca4b;
+    background-color: #CCA707;
     border-bottom-left-radius: 50%;
 }
 
 .blue {
-    background-color: #0605c5;
+    background-color: #094A8F;
     border-bottom-right-radius: 50%;
 }
 
