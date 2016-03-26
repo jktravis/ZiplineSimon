@@ -1,6 +1,6 @@
 $(document).ready(function () {
   var Simon = exports.simon;
-  var $buttons = $('#simon > button');
+  var $buttons = $('#simon button');
   var $powerSwitch = $('#power');
   var $strictMode = $('#strict');
   var $errorFlash = $('#errorFlash');

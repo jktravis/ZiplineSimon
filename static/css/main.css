@@ -8,15 +8,27 @@ h1 {
 
 #simon {
     background-color: #2e2e2e;
-    width: 450px;
-    height: 450px;
+    width: 500px;
+    height: 500px;
     border-radius: 50%;
+    box-shadow: 0 0 30px #404040;
 }
 
-#simon > button {
-    width: 225px;
-    height: 225px;
+#simon button {
+    width: 205px;
+    height: 205px;
     float: left;
+    border: none;
+}
+
+#buttons {
+    position: absolute;
+    left: 60px;
+    top: 45px;
+}
+
+#0 {
+
 }
 .green {
     background-color: #00A74A;
