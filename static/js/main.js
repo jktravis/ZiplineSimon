@@ -64,7 +64,11 @@ $(document).ready(function () {
     // Selection correct?
     if (Simon.compareSelection(Simon.currentStep, parseInt(this.id))) {
       console.log('Correct selection');
-      if (Simon.isLastInPattern()) {
+      if (Simon.isLastStepInGame() && Simon.isLastInPattern()) {
+        // won the game
+        console.log('You win!');
+      }
+      else if (Simon.isLastInPattern()) {
         console.log('Last in pattern. Getting next, and playing pattern');
         Simon.pattern.push(Simon.getNextInPattern());
         Simon.currentStep = 0;
@@ -79,6 +83,7 @@ $(document).ready(function () {
     else {
       console.log('Incorrect selection');
       console.log(Simon.pattern);
+      Simon.currentStep = 0;
       playPattern();
     }
   })
