@@ -1,12 +1,6 @@
 $(document).ready(function () {
   var Simon = exports.simon;
   var $buttons = $('#simon > button');
-  var sounds = [
-    new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'),
-    new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3'),
-    new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3'),
-    new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3')
-  ];
 
   var colors = [
     {base: '#00c100', highlight: '#00ff00'},
@@ -17,23 +11,30 @@ $(document).ready(function () {
 
   function playPattern() {
     var seqFunctions = [];
-    for (var i = 0; i < Simon.pattern.length; i++) {
-      seqFunctions.push([flash, Simon.pattern[i]]);
-    }
+    setTimeout(
+      (function (){
+        for (var i = 0; i < Simon.pattern.length; i++) {
+          seqFunctions.push([flash, Simon.pattern[i]]);
+        }
 
-    seqFunctions.map(function(fun, index) {
-      setTimeout(fun[0], 1000 * index, fun[1]);
-    });
+        seqFunctions.map(function(fun, index) {
+          setTimeout(fun[0], 1000 * index, fun[1]);
+        });
+      }), 2000 )
+  }
+
+  function playSound(id) {
+    $('#audio-' + id).trigger('play');
   }
 
   function flash(id) {
     var $sel = $('#' + id);
     (function() {
-      $sel.animate({backgroundColor: colors[id].highlight}, 750);
-      sounds[id].play();
+      playSound(id);
+      $sel.animate({backgroundColor: colors[id].highlight}, 'fast');
     })();
     (function() {
-      $sel.animate({backgroundColor: colors[id].base}, 300);
+      $sel.animate({backgroundColor: colors[id].base}, 'slow');
     })();
   }
 
@@ -42,7 +43,7 @@ $(document).ready(function () {
 
   $buttons.on('mousedown', function() {
     $(this).animate({backgroundColor: colors[this.id].highlight}, 'fast');
-    sounds[this.id].play();
+    playSound(this.id);
   });
 
   $buttons.on('mouseup', function () {
