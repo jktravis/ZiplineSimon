@@ -134,6 +134,23 @@ label[for=strict] {
     left: 142px;
 }
 
+#strictIndicator {
+    background-color: #32050C;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border: 1px solid #222;
+    border-radius: 5px;
+    font-size: 10px;
+    left: 157px;
+    top: 88px;
+}
+
+#strictIndicator.active {
+    background-color: #b20000;
+    box-shadow: 0 0 5px red;
+}
+
 #start {
     left: 100px;
     background-color: #e12b34;

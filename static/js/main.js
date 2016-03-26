@@ -131,7 +131,7 @@ $(document).ready(function () {
    * Toggles strict mode in both the UI and the engine.
    */
   function toggleStrict() {
-    $strictMode.toggleClass('active btn-default btn-warning');
+    $('#strictIndicator').toggleClass('active');
     Simon.toggleStrict();
   }
 
