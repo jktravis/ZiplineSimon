@@ -27,9 +27,29 @@ h1 {
     top: 45px;
 }
 
-#0 {
-
+#controls {
+    background-color: #ECE7EE;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: absolute;
+    top: 150px;
+    left: 170px;
 }
+
+#label {
+    position: absolute;
+    font-size: 3.5em;
+    font-weight: bold;
+    top: 20px;
+    left: 25px;
+}
+
+#tm {
+    font-size: small;
+    vertical-align: super;
+}
+
 .green {
     background-color: #00A74A;
     border-top-left-radius: 50%;
@@ -66,4 +86,10 @@ h1 {
 
 .modal-body {
     font-size: 2em;
+}
+
+.bootstrap-switch-id-power {
+    position: absolute;
+    top: 160px;
+    left: 60px;
 }
