@@ -50,6 +50,8 @@ $(document).ready(function () {
     $('#score').text(zfill(Simon.pattern.length - 1, 2));
   }
 
+  $("[name='my-checkbox']").bootstrapSwitch();
+
   Simon.pattern.push(Simon.getNextInPattern());
   updateScore();
   playPattern();
@@ -81,6 +83,20 @@ $(document).ready(function () {
       }
     }
     else {
+      // flash on error
+      setTimeout(function() {
+        $('#errorFlash').modal('show');
+        setTimeout(function() {
+          $('#errorFlash').modal('hide');
+          setTimeout(function () {
+            $('#errorFlash').modal('show');
+            setTimeout(function () {
+              $('#errorFlash').modal('hide');
+            }, 300)
+          }, 300)
+        }, 300)
+      }, 300);
+
       console.log('Incorrect selection');
       console.log(Simon.pattern);
       Simon.currentStep = 0;
