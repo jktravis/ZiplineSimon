@@ -20,7 +20,7 @@ $(document).ready(function () {
         seqFunctions.map(function(fun, index) {
           setTimeout(fun[0], 1000 * index, fun[1]);
         });
-      }), 2000 )
+      }), 2000 );
   }
 
   function playSound(id) {
@@ -54,6 +54,7 @@ $(document).ready(function () {
       if (Simon.isLastInPattern()) {
         console.log('Last in pattern. Getting next, and playing pattern');
         Simon.pattern.push(Simon.getNextInPattern());
+        Simon.currentStep = 0;
         playPattern();
       }
       else {
@@ -63,6 +64,7 @@ $(document).ready(function () {
     }
     else {
       console.log('Incorrect selection');
+      console.log(Simon.pattern);
     }
   })
 });
