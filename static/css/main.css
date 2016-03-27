@@ -21,7 +21,7 @@ h1 {
     border: none;
 }
 
-#buttons button:focus {
+#buttons button:focus, #controls button:focus {
     outline: none;
 }
 
