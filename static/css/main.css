@@ -15,9 +15,8 @@ h1 {
 }
 
 #buttons button {
-    width: 205px;
-    height: 205px;
-    float: left;
+    width: 210px;
+    height: 210px;
     border: none;
 }
 
@@ -27,8 +26,8 @@ h1 {
 
 #buttons {
     position: absolute;
-    left: 60px;
-    top: 45px;
+    left: 45px;
+    top: 30px;
 }
 
 #controls {
@@ -39,6 +38,16 @@ h1 {
     position: absolute;
     top: 150px;
     left: 170px;
+}
+
+#controlsBg {
+    background-color: #2e2e2e;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    position: absolute;
+    top: 131px;
+    left: 150px;
 }
 
 #label {
@@ -56,22 +65,33 @@ h1 {
 
 .green {
     background-color: #00A74A;
-    border-top-left-radius: 50%;
+    border-top-left-radius: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .red {
     background-color: #9F0F17;
-    border-top-right-radius: 50%;
+    border-top-right-radius: 100%;
+    position: absolute;
+    top: 0;
+    left: 230px;
 }
 
 .yellow {
     background-color: #CCA707;
-    border-bottom-left-radius: 50%;
+    border-bottom-left-radius: 100%;
+    position: absolute;
+    top: 230px;
 }
 
 .blue {
     background-color: #094A8F;
-    border-bottom-right-radius: 50%;
+    border-bottom-right-radius: 100%;
+    position: absolute;
+    top: 230px;
+    left: 230px;
 }
 
 #score {
@@ -165,4 +185,8 @@ label[for=start] {
     position: absolute;
     top: 125px;
     left: 95px;
+}
+
+#simon #buttons #0.green {
+    border-top-left-radius: 75% !important;
 }
